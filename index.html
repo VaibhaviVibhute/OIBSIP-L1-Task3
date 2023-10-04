@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.css">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    #main_body{
+        height: 510px;
+        width: 500px;
+        border: 1px solid black;
+        margin-left: 500px;
+        margin-top: 100px;
+        background-image: linear-gradient(rgba(141, 151, 89, 0.773),rgb(209, 215, 121),rgb(229, 245, 82));
+    }
+    #title{
+        height: 50px;
+        width: 500px;
+        /* border: 1px solid black; */
+        font-size: 29px;
+        font-weight: 700;
+        padding-left: 90px;
+        margin-top: 30px;
+    }
+
+    .box{
+        height: 100px;
+        width: 170px;
+        /* border: 1px solid black; */
+        display: flex;
+        flex-direction: column;
+    }
+    #label{
+        height: 50px;
+        width: 150px;
+        /* border: 1px solid black; */
+        font-size: 20px;
+    }
+    #inp{
+        height: 30px;
+        width: 160px;
+        /* border: 1px solid black; */
+        margin-top: 25px;
+        font-size: 16px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-width: medium;
+    }
+
+    #deg{
+        height: 30px;
+        width: 160px;
+        /* border: 1px solid black; */
+        margin-top: 25px;
+        font-size: 16px;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-width: medium;
+    }
+    #block{
+        display: flex;
+        margin-top: 40px;
+        width: 500px;
+        /* border: 1px solid black; */
+    }
+    #box1{
+        margin-left: 50px;
+    }
+    #box2{
+        margin-left: 60px;
+    }
+    
+
+    #result{
+        height: 100px;
+        width: 500px;
+        /* border: 1px solid black; */
+        margin-top: 45px;
+    }
+    #res{
+        height: 40px;
+        width: 500px;
+        /* border: 1px solid black; */
+        font-size: 20px;
+        padding-top: 10px;
+        padding-left: 50px;
+    }
+    #inp1{
+        height: 40px;
+        width: 200px;
+        /* border: 1px solid black; */
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-width: medium;
+        font-size: 16px;
+        margin-left: 50px;
+    }
+
+
+    #btn{
+        height: 50px;
+        width: 200px;
+        /* border: 1px solid black; */
+        color: white;
+        background-color: rgba(74, 184, 196, 0.848);
+        font-size: 23px;
+        font-weight: 700;
+        padding: 10px 60px;
+        margin-top: 50px;
+        margin-left: 150px;
+        border-radius: 50px;
+    }
+</style>
+<body>
+    <div id="main_body">
+
+        <div id="title">Temperature Converter</div>
+
+
+        <div id="block">
+            <div id="box1" class="box">
+                <div id="b2" class="b1">
+                    <label for="Degrees" id="label">Degrees</label>
+                    <input type="text" id="inp" placeholder="Type a number">
+                </div>
+            </div>
+
+
+            <div id="box2" class="box">
+                <div id="b3" class="b1">
+                    <label for="Type" id="label">Type</label>
+                    <select name="deg" id="deg">
+                        <option value="Celsius">Celsius</option>
+                        <option value="Fahrenheit">Fahrenheit</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="result">
+            <div id="res"><label for="result">Result</label></div>
+            <input type="text" name="" id="inp1">
+        </div>
+
+
+
+        <div id="btn" onclick="convert()">Convert</div>
+
+        <script>
+            function convert() {
+                var temp = document.getElementById("inp");
+                var result = document.getElementById("inp1");
+
+                var e = document.getElementById("deg");
+                var optionSelIndex = e.options[e.selectedIndex].value;
+                var optionSelectedText = e.options[e.selectedIndex].text;
+
+                    if (temp.value !== "") {
+                        if (optionSelIndex == 0) {
+                                alert("Please select a unit");
+                        } else {
+                            if (optionSelectedText === "Fahrenheit") {
+                                result.value = ((temp.value - 32) * 5) / 9 + "°C";
+                            }
+                            if (optionSelectedText === "Celcius") {
+                                result.value = (temp.value * 9) / 5 + 32 + "°F";
+                            }
+                        }
+                    } else {
+                        alert("Please enter temperature to convert");
+                        }
+                    }
+        </script>
+        
+
+    </div>
+</body>
+</html>
